@@ -14,7 +14,7 @@ mean(str_length(citations_txt))
 # Data Cleaning
 sample(citations_txt, 10)
 
-citations_tbl <- as_tibble(data.frame(line = 1:45492, cite = citations_txt)) %>%
+citations_tbl <- as_tibble(data.frame(line = 1:length(citations_txt), cite = citations_txt)) %>%
   mutate(cite = str_remove_all(citations_txt, pattern = "^\"|\'")) %>%
   mutate(year = str_extract(citations_txt, pattern = "(\\d{4})")) %>%
   mutate(page_start = str_match(citations_txt, pattern = "(\\d+)-")[,2]) %>%
