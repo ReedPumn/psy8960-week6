@@ -23,5 +23,3 @@ citations_tbl <- as_tibble(data.frame(line = 1:45492, cite = citations_txt)) %>%
   mutate(first_author = str_match(citations_txt, pattern = "(\\w+), (\\w)")[,1])
 
 length(citations_tbl$first_author)
-
-
